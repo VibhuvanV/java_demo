@@ -1,14 +1,12 @@
 package Optional;
 
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class OptionalDemo {
-
     public static void main(String[] args) {
-
         Optional<String> ans = sayHello();
-
         // isPresent()
         System.out.println("isPresent : " + ans.isPresent());
 
@@ -46,6 +44,14 @@ public class OptionalDemo {
         System.out.println("filter : " +
                 ans.filter(s -> s.startsWith("H"))
                         .orElse("Not Matched"));
+
+        List<String> countries = Arrays.asList("India", null, "Canada", null, "Brazil", "Rome", null);
+        List<String> s = countries.stream()
+                .filter(Objects::nonNull)
+                .map(e -> e.toUpperCase())
+                .collect(Collectors.toList());
+
+        System.out.println(s);
     }
 
     public static Optional<String> sayHello() {

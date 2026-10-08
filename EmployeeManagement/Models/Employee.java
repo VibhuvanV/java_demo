@@ -5,10 +5,11 @@ import EmployeeManagement.Constants.CompanyConstants;
 public abstract class Employee {
     public int employeeId;
     int age;
-    String department;
-    String role;
-    String employeeName;
+    public String department;
+    public String role;
+    public String employeeName;
     double salary;
+    public String assignedWork;
 
     public Employee(int employeeId, String employeeName, int age, String department, String role, double salary) {
         this.employeeId = employeeId;
@@ -17,6 +18,14 @@ public abstract class Employee {
         this.department = department;
         this.role = role;
         this.salary = salary;
+    }
+
+    public String getAssignedWork() {
+        return assignedWork;
+    }
+
+    public void setAssignedWork(String assignedWork) {
+        this.assignedWork = assignedWork;
     }
 
     public double calculate_salary() {
